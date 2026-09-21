@@ -1,0 +1,350 @@
+/* ============================================================
+   LYDIAH FREELANCE & VIRTUAL ASSISTANT — STYLESHEET
+   Organized top to bottom in the same order sections appear
+   on the page: Root colors -> Header -> Hero -> About ->
+   Services -> Recruitment -> Footer.
+   ============================================================ */
+
+/* ---------- COLOR PALETTE ----------
+   Change a value here and it updates everywhere that variable
+   is used on the page. This is the fastest way to re-theme
+   the whole site without hunting through every rule. */
+:root{
+  --navy-deep:#20142E;  /* deepest plum — page background, dark text on gold */
+  --navy:#382450;       /* panel purple — header, hero, service cards, footer */
+  --navy-light:#5B3F78; /* lighter purple — borders, dividers */
+  --gold:#D9A441;       /* warm gold accent — buttons, prices, highlights (pairs classically with purple) */
+  --bg:#20142E;         /* overall page background (matches navy-deep) */
+  --cream:#F5EEDD;      /* warm cream — About & Recruitment section backgrounds */
+  --ink:#F1EDF6;         /* main light text (on dark backgrounds) */
+  --ink-soft:#BEAECF;    /* muted light text (on dark backgrounds) */
+  --ink-dark:#2A1B3D;    /* main dark text (on light/cream backgrounds) */
+  --ink-dark-soft:#5C4F6B;/* muted dark text (on light/cream backgrounds) */
+  --card:#3F2957;        /* service card background */
+  --radius:10px;         /* small default corner radius */
+}
+
+/* ---------- BASE / RESET ---------- */
+*{ box-sizing:border-box; }
+html{ background:#20142E; } /* fallback color for any empty space below the page content */
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background-color:var(--bg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  line-height:1.6;
+}
+h1,h2,h3{
+  font-family:'Fraunces',serif; /* the elegant serif headline font */
+  font-weight:600;
+  margin:0;
+  color:#fff;
+}
+a{ color:inherit; }
+img{ max-width:100%; display:block; } /* prevents any image from overflowing its container */
+.wrap{ max-width:1080px; margin:0 auto; padding:0 24px; } /* the centered content container used inside most sections */
+
+
+/* ============================================================
+   HEADER  (top bar with your photo, name, and nav links)
+   ============================================================ */
+header{
+  background:var(--gold);
+  border-bottom:1px solid rgba(32,20,46,0.2);
+  position:sticky; top:0; z-index:20; /* keeps header pinned while scrolling */
+}
+.header-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px; max-width:1080px; margin:0 auto;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+
+/* --- IMAGE SIZE: header logo photo ---
+   Change width/height together to resize the small logo badge
+   in the top-left corner. Keep them equal for a circle. */
+.header-photo{
+  width:52px;
+  height:52px;
+  border-radius:50%;            /* perfect circle */
+  object-fit:cover;             /* fills the box, cropping overflow instead of stretching */
+  object-position:center 25%;   /* shifts the crop focus — raise the 2nd number to show more of the top of the photo */
+  border:2px solid var(--navy-deep);
+  background:var(--navy-deep);
+}
+/* Shown instead of .header-photo only if profile.jpg fails to load (see script.js) */
+.header-photo-fallback{
+  width:52px; height:52px; border-radius:50%;
+  background:var(--navy-deep); color:var(--gold);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Fraunces',serif; font-weight:600; font-size:17px;
+  border:2px solid var(--navy-deep);
+}
+.brand-name{ font-family:'Fraunces',serif; font-weight:600; font-size:18px; letter-spacing:.2px; color:var(--navy-deep); }
+.brand-name span{ display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:12px; color:var(--ink-dark-soft); }
+nav{ display:flex; gap:22px; font-size:14px; font-weight:600; }
+nav a{ text-decoration:none; color:var(--navy-deep); }
+nav a:hover{ color:#fff; }
+@media (max-width:640px){ nav{ display:none; } } /* nav links hide on small screens */
+
+
+/* ============================================================
+   HERO  (welcome banner directly under the header)
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden;
+  background:var(--navy);
+  margin:24px 24px 0;            /* the gap that makes this a "floating panel" */
+  border-radius:20px;            /* rounded corners of the panel — change this to resize the curve */
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:72px 24px 68px; color:#fff;
+  border-bottom:3px solid var(--gold);
+}
+.hero-inner{ position:relative; z-index:1; max-width:680px; }
+.hero .eyebrow{
+  display:inline-block;
+  color:var(--gold); border-bottom:1px solid rgba(217,164,65,0.5);
+  padding-bottom:6px; font-size:12.5px; font-weight:600; letter-spacing:.3px;
+  margin-bottom:24px;
+}
+.hero h1{
+  font-size:clamp(30px,4.5vw,46px); /* scales between 30px and 46px depending on screen width */
+  font-weight:600;
+  color:#fff; margin:0 0 18px; line-height:1.15;
+}
+.hero p.lead{ max-width:520px; margin:0 0 32px; color:var(--ink-soft); font-size:17px; }
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+/* Buttons used across the whole page (Chat on WhatsApp, Join now, etc.) */
+.btn{
+  display:inline-block; padding:13px 28px; border-radius:8px;
+  font-weight:600; font-size:14px; letter-spacing:.2px; text-decoration:none;
+  transition:opacity .15s ease;
+}
+.btn:hover{ opacity:0.85; }
+.btn-gold{ background:var(--gold); color:var(--navy-deep); }
+.btn-outline{ border:1.5px solid rgba(255,255,255,0.5); color:#fff; }
+
+
+/* ============================================================
+   SECTION SHELL  (shared spacing/heading rules used by
+   About, Services, and Recruitment)
+   ============================================================ */
+section{ padding:80px 0; } /* default top/bottom breathing room for every <section> */
+#about, #recruit{ border-top:1px solid var(--navy-light); }
+.section-head{ max-width:620px; margin:0 auto 44px; text-align:center; }
+.section-head h2{ font-size:30px; margin-bottom:12px; letter-spacing:.2px; }
+.section-head p{ color:var(--ink-soft); font-size:15px; }
+
+
+/* ============================================================
+   ABOUT  (bio section with your photo)
+   ============================================================ */
+.about-grid{
+  display:grid; grid-template-columns:1fr 1.3fr; gap:44px; align-items:start;
+}
+@media (max-width:760px){ .about-grid{ grid-template-columns:1fr; } } /* stacks on mobile */
+
+/* --- IMAGE SIZE: About section photo frame ---
+   This box is a perfect square (aspect-ratio:1/1) that scales
+   with the column width. To make the photo itself bigger,
+   widen the "1fr 1.3fr" ratio above (e.g. change to "1fr 1fr"),
+   or set a max-width on .about-photo below. */
+.about-photo{
+  position:relative;
+  aspect-ratio:1/1;              /* keeps the frame perfectly square at any size */
+  border-radius:var(--radius);   /* corner rounding of the photo frame */
+  background:var(--navy);
+  border:3px solid var(--gold);  /* frame border thickness/color */
+  overflow:hidden;                /* required so the image respects the rounded corners */
+  /* NOTE: no padding here on purpose — padding would shrink the image
+     inward and leave a gap around it. If you need spacing for the
+     placeholder text (before a photo is added), that's handled by
+     .photo-placeholder below instead. */
+}
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;              /* fills the whole frame, cropping overflow — this is what makes it "fill the section" */
+  object-position:center 20%;    /* crop focus point — raise/lower the 2nd number to show more top/bottom of the photo */
+}
+/* Shown instead of the photo only if profile.jpg fails to load (see script.js) */
+.photo-placeholder{
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  padding:20px; text-align:center;
+  color:var(--gold); font-family:'Fraunces',serif; font-weight:600; font-size:15px;
+}
+
+.about-copy{ text-align:center; }
+.about-copy h3{ font-size:22px; margin-bottom:6px; color:#fff; }
+.about-copy .role{ color:var(--gold); font-weight:600; font-size:14px; margin-bottom:16px; }
+.about-copy p{ color:var(--ink-soft); margin-bottom:14px; }
+.pull-quote{
+  font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+  font-size:22px; line-height:1.4; color:#fff;
+  margin-bottom:20px;
+}
+.partner-badge{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--navy); border:1px solid var(--navy-light); border-radius:10px;
+  padding:10px 16px; font-size:13px; font-weight:600; color:#fff;
+  margin-top:6px;
+}
+.partner-badge .dot{ width:8px; height:8px; border-radius:50%; background:var(--gold); }
+
+
+/* ============================================================
+   SERVICES  (the 4 pricing cards: Transcription, Translation,
+   Academic Writing, Data Entry)
+   ============================================================ */
+.services{
+  background:var(--navy);
+  margin:24px; border-radius:20px;   /* rounded floating panel, same style as the hero */
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:80px 0;
+}
+.service-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+@media (max-width:900px){ .service-grid{ grid-template-columns:repeat(2,1fr); } } /* 2 columns on tablet */
+@media (max-width:520px){ .service-grid{ grid-template-columns:1fr; } }           /* 1 column on phone */
+
+.service-card{
+  position:relative;
+  background:var(--card);
+  border:2px solid var(--tier-color, var(--navy-light)); /* colored border comes from the tier class below */
+  border-radius:12px;
+  padding:24px 20px; text-align:left; overflow:hidden;
+  transition:border-color .15s ease;
+}
+.service-card:hover{ border-color:var(--gold); }
+
+/* Tier colors — each service card gets one of these classes in the HTML
+   (tier-bronze / tier-silver / tier-gold / tier-platinum). Change the
+   hex codes here to change all four cards' accent colors at once. */
+.tier-bronze{ --tier-color:#C08A52; }
+.tier-silver{ --tier-color:#AEB6BE; }
+.tier-gold{ --tier-color:#D9A441; }
+.tier-platinum{ --tier-color:#8FA0B3; }
+
+.tier-badge{
+  position:absolute; top:16px; right:18px;
+  font-size:11.5px; font-weight:600; color:var(--navy-deep);
+  padding:3px 10px; border-radius:999px;
+  background:var(--tier-color,#fff);
+}
+
+/* --- ICON SIZE: small square icon at the top of each service card --- */
+.service-icon{
+  width:46px; height:46px; border-radius:10px;
+  background:var(--tier-color,var(--gold));
+  display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+}
+.service-icon svg{ width:24px; height:24px; stroke:var(--navy-deep); }
+
+.service-card h3{ font-size:17px; margin-bottom:6px; color:#fff; }
+.service-card p.desc{ color:var(--ink-soft); font-size:13.5px; margin-bottom:16px; min-height:52px; }
+.price-row{ border-top:1px dashed var(--navy-light); padding-top:12px; }
+.price-row .price-kes{ font-family:'Fraunces',serif; font-weight:600; font-size:16px; color:var(--tier-color,var(--gold)); }
+.price-row .price-usd{ font-size:12.5px; color:var(--ink-soft); }
+.services-cta{ text-align:center; margin-top:36px; }
+
+
+/* ============================================================
+   RECRUITMENT  ("Join my team" box)
+   ============================================================ */
+.recruit{
+  background:var(--navy); color:#fff;
+  border-radius:16px; border:1px solid var(--navy-light);
+  margin:0 24px; padding:52px 40px;
+  max-width:1032px; margin-left:auto; margin-right:auto;
+}
+.recruit-inner{ max-width:1080px; margin:0 auto; }
+.recruit .section-head h2, .recruit .section-head p{ color:#fff; }
+.recruit .section-head p{ color:var(--ink-soft); }
+
+.recruit-figures{ display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:32px; }
+.figure-box{
+  background:rgba(217,164,65,0.08); border:1px solid rgba(217,164,65,0.35);
+  border-radius:12px; padding:20px; text-align:center; max-width:340px; margin:0 auto;
+}
+.figure-box .label{ font-size:13px; color:var(--ink-soft); margin-bottom:6px; }
+.figure-box .value{ font-family:'Fraunces',serif; font-weight:600; font-size:21px; color:var(--gold); }
+.figure-box .value small{ display:block; font-size:12px; color:var(--ink-soft); font-weight:500; margin-top:2px; }
+
+/* the 4 joining-fee tier cards (Bronze/Silver/Gold/Platinum) */
+.recruit-tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
+@media (max-width:700px){ .recruit-tiers{ grid-template-columns:1fr; } }
+.recruit-tier{
+  background:var(--navy-deep);
+  border:1px solid var(--navy-light);
+  border-top:4px solid var(--tier-color); /* reuses the same tier colors defined in the Services section */
+  border-radius:10px; padding:18px 12px; text-align:center;
+  transition:border-color .15s ease;
+}
+.recruit-tier:hover{ border-color:var(--tier-color); }
+.recruit-tier .rt-tier{ font-size:11px; font-weight:600; letter-spacing:.2px; color:var(--tier-color); margin-bottom:8px; }
+.recruit-tier .rt-label{ font-size:13px; color:var(--ink-soft); margin-bottom:10px; min-height:34px; }
+.recruit-tier .rt-price{ font-family:'Fraunces',serif; font-weight:600; font-size:22px; color:#fff; }
+.recruit-note{ text-align:center; color:var(--ink-soft); font-size:13px; margin:-16px 0 28px; }
+
+.benefits{
+  list-style:none; padding:0; margin:0 0 32px;
+  display:grid; grid-template-columns:1fr 1fr; gap:12px 24px;
+}
+@media (max-width:600px){ .benefits{ grid-template-columns:1fr; } }
+.benefits li{ display:flex; align-items:center; gap:10px; font-size:14.5px; }
+.benefits li .check{
+  width:20px; height:20px; border-radius:50%; background:var(--gold);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.benefits li .check svg{ width:11px; height:11px; stroke:var(--navy-deep); }
+.recruit-cta{ text-align:center; }
+
+
+/* ============================================================
+   FOOTER  (Get in touch, Services list, Partner note, copyright)
+   ============================================================ */
+footer{
+  background:var(--navy);
+  margin:0 24px 24px; border-radius:20px; overflow:hidden;
+  max-width:1032px; margin-left:auto; margin-right:auto;
+  padding:56px 0 0;
+}
+.contact-grid{
+  display:flex; flex-direction:column; gap:32px;
+  width:fit-content; max-width:100%; margin:0 auto 40px;
+  text-align:left;
+}
+.contact-grid h4{ font-size:14px; letter-spacing:.2px; margin-bottom:14px; color:#fff; text-align:left; }
+.contact-line{ display:flex; align-items:center; justify-content:flex-start; gap:10px; margin-bottom:12px; font-size:14.5px; }
+
+/* --- ICON SIZE: small square badge behind each contact icon --- */
+.contact-line .ico{
+  width:32px; height:32px; border-radius:8px; background:var(--navy-deep);
+  border:1px solid var(--navy-light); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact-line .ico svg{ width:19px; height:19px; stroke:var(--gold); }
+/* WhatsApp and Gmail keep their real brand colors so they're instantly recognizable */
+.contact-line .ico-whatsapp{ background:#E7F8EE; border-color:#BFEBD1; }
+.contact-line .ico-whatsapp svg{ width:19px; height:19px; stroke:none; }
+.contact-line .ico-gmail{ background:#FDF2F1; border-color:#F6D9D6; }
+.contact-line .ico-gmail svg{ width:19px; height:15px; stroke:none; }
+.contact-line .ico-dot{ background:transparent; border:none; }
+.contact-line .ico-dot .dot{ width:9px; height:9px; border-radius:50%; background:var(--gold); display:block; }
+.contact-line a{ text-decoration:none; font-weight:600; color:#fff; }
+
+/* The gold pill-shaped copyright badge at the very bottom */
+footer p.copy{
+  display:inline-block; margin:0 auto;
+  background:var(--gold); color:var(--navy-deep);
+  font-size:12.5px; font-weight:600; letter-spacing:.2px;
+  padding:10px 22px; border-radius:999px;
+}
+.footer-bottom{
+  background:var(--navy);
+  border-top:1px solid var(--navy-light);
+  padding:20px 24px; margin-top:40px;
+  text-align:center;
+}
