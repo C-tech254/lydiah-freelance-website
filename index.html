@@ -20,14 +20,17 @@
   <div class="header-row">
     <div class="brand">
       <!-- Replace profile.jpg with your own photo in the same folder as this file -->
-      <img class="header-photo" src="profile.jpg" alt="Lydiah Freelance & Virtual Assistant"
-           onerror="headerPhotoFallback(this)">
+      <div class="header-photo-frame">
+        <img class="header-photo" src="profile.jpg" alt="Lydiah Freelance & Virtual Assistant"
+             onerror="headerPhotoFallback(this)">
+      </div>
       <div class="brand-name">Lydiah Freelance & Virtual Assistant<span>Freelance Services</span></div>
     </div>
     <nav>
       <a href="#services">Services</a>
+      <a href="#training">Training</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact">Contact</a
     </nav>
   </div>
 </header>
@@ -48,8 +51,14 @@
 <section id="about">
   <div class="wrap about-grid">
     <div class="about-photo">
-      <img src="profile.jpg" alt="Lydiah Freelance & Virtual Assistant"
-           onerror="aboutPhotoFallback(this)">
+      <div class="about-photo-window">
+        <img src="profile.jpg" alt="Lydiah Freelance & Virtual Assistant"
+             onerror="aboutPhotoFallback(this)">
+      </div>
+      <svg class="photo-light-trail" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <rect class="photo-light-track" x=".5" y=".5" width="99" height="99" rx="2.3"></rect>
+        <rect class="photo-light-runner" x=".5" y=".5" width="99" height="99" rx="2.3" pathLength="1000"></rect>
+      </svg>
     </div>
     <div class="about-copy">
       <h3>About Lydiah</h3>
@@ -70,9 +79,6 @@
     <div class="service-grid">
 
       <div class="service-card tier-bronze">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" y1="18" x2="12" y2="23"/></svg>
-        </div>
         <h3>Transcription</h3>
         <p class="desc">Audio and video turned into clean, accurate text, covering interviews, lectures and meetings.</p>
         <div class="price-row">
@@ -82,9 +88,6 @@
       </div>
 
       <div class="service-card tier-silver">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg>
-        </div>
         <h3>Translation</h3>
         <p class="desc">Documents and content translated with the meaning and tone kept intact.</p>
         <div class="price-row">
@@ -94,9 +97,6 @@
       </div>
 
       <div class="service-card tier-gold">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        </div>
         <h3>Academic Writing</h3>
         <p class="desc">Well-researched, properly referenced essays, reports and assignments.</p>
         <div class="price-row">
@@ -106,9 +106,6 @@
       </div>
 
       <div class="service-card tier-platinum">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="6" y1="16" x2="12" y2="16"/></svg>
-        </div>
         <h3>Data Entry</h3>
         <p class="desc">Fast, accurate entry and cleanup of spreadsheets, forms and databases.</p>
         <div class="price-row">
@@ -119,7 +116,25 @@
 
     </div>
     <div class="services-cta">
-      <a class="btn btn-gold" style="background:#C0392B;color:#fff;" href="https://eaglewebcommerce.com/register/Nduatiii24" target="_blank" rel="noopener">Join now</a>
+      <a class="btn btn-gold" href="https://eaglewebcommerce.com/register/Nduatiii24" target="_blank" rel="noopener">Join now</a>
+    </div>
+  </div>
+</section>
+
+<section id="training" class="training">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Training & mentorship</h2>
+      <p>Get practical guidance to build your freelance skills and take your next steps in remote work.</p>
+    </div>
+    <div class="service-card tier-gold training-card">
+      <h3>Freelance training & mentorship</h3>
+      <p class="training-detail">Build your freelance skills with practical guidance and mentorship in transcription, translation, academic writing, or data entry. We’ll discuss the service you want to focus on, the skills you need, and helpful steps for getting started. Ready to take the next step? Get in touch and let’s plan a learning path around your freelance goals.</p>
+      <div class="price-row">
+        <div class="price-kes">$20</div>
+        <div class="price-usd">Message to ask about the training</div>
+      </div>
+      <a class="btn btn-gold training-cta" href="https://wa.me/254712910343?text=Hi%2C%20I%27m%20interested%20in%20the%20%2420%20training%20and%20mentorship." target="_blank" rel="noopener">Ask about training</a>
     </div>
   </div>
 </section>
@@ -171,6 +186,7 @@
         <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Translation</div>
         <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Academic Writing</div>
         <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Data Entry</div>
+        <div class="contact-line" style="color:var(--ink-soft);font-weight:500;"><span class="ico ico-dot"><span class="dot"></span></span>Training & mentorship</div>
       </div>
       <div>
         <h4>Get in touch</h4>
@@ -184,7 +200,7 @@
         </div>
         <div class="contact-line">
           <span class="ico ico-gmail">
-            <svg viewBox="0 0 48 36" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 48 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3.27 36h7.27V17.45L0 9.55V32.7C0 34.5 1.46 36 3.27 36z" fill="#4285F4"/>
               <path d="M37.45 36h7.28c1.82 0 3.27-1.5 3.27-3.3V9.55l-10.55 7.9" fill="#34A853"/>
               <path d="M37.45 4.36V17.45L48 9.55V5.45c0-4.1-4.68-6.44-7.95-3.98z" fill="#FBBC04"/>
